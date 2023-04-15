@@ -7,8 +7,7 @@ const cors = require("cors");
 const app = express();
 
 mongoose.set("strictQuery", true);
-const url =
-  "mongodb+srv://root:root@cluster0.zocib2i.mongodb.net/?retryWrites=true&w=majority";
+const url =process.env.MONGODB_URL;
 const port = process.env.PORT || 9000;
 mongoose.connect(url);
 const con = mongoose.connection;
