@@ -30,8 +30,7 @@ user.post("/register", async (req, res) => {
     password: req.body.Password,
     name: req.body.Name,
     pno: req.body.Mobile,
-    batch: req.body.Batch,
-    branch:req.body.Branch,
+   regdno:req.body.Regdno,
     profess:req.body.Profession
   });
   try {

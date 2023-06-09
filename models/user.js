@@ -19,13 +19,10 @@ const userSchema = mongoose.Schema(
       required: true,
       unique: true,
     },
-    batch:{
-        type:Number,
-        //required: true,
-    },
-    branch:{
+    
+    regdno:{
         type:String,
-        //required: true,
+        required: true,
     },
     profess:{
         type:String,
