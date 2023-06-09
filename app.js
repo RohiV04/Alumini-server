@@ -15,34 +15,36 @@ con.once("open", () => {
   console.log("Mongo DB connected");
 });
 
-const configuration = new Configuration({
-  apiKey: process.env.OPENAI_API_KEY,
-});
-const openai = new OpenAIApi(configuration);
+// const configuration = new Configuration({
+//   apiKey: process.env.OPENAI_API_KEY,
+// });
+// const openai = new OpenAIApi(configuration);
 
-async function runCompletion(prompt) {
-  try {
-    const completion = await openai.completions.create({
-      engine: "text-davinci-002",
-      prompt: prompt,
-      maxTokens: 5,
-      n: 1,
-      stop: "\n",
-    });
-    console.log(completion.choices[0].text);
-  } catch (error) {
-    console.error(error);
-  }
-}
+// async function runCompletion(prompt) {
+//   try {
+//     const completion = await openai.completions.create({
+//       engine: "text-davinci-002",
+//       prompt: prompt,
+//       maxTokens: 5,
+//       n: 1,
+//       stop: "\n",
+//     });
+//     console.log(completion.choices[0].text);
+//   } catch (error) {
+//     console.error(error);
+//   }
+// }
 
 app.use(express.json());
 
-app.post("/completion", async (req, res) => {
-  const prompt = req.body.prompt;
-  await runCompletion(prompt);
-  res.sendStatus(200);
-});
-
+// app.post("/completion", async (req, res) => {
+//   const prompt = req.body.prompt;
+//   await runCompletion(prompt);
+//   res.sendStatus(200);
+// });
+app.get('/',(req,res)=>{
+  res.send('Welcome')
+})
 const userRouter = require("./router/users");
 const linkRouter = require("./router/linkedin");
 const testRouter = require("./router/test");
